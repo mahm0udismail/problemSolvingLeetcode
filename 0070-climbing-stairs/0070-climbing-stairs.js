@@ -3,16 +3,14 @@
  * @return {number}
  */
 
+let l = [0, 1, 2];
 
 var climbStairs = function(n) {
-    let dictionary = {};
-    return f(n , dictionary);
+    
+    while(l.length - 1 < n){
+        l.push(l[l.length - 1] + l[l.length - 2]);
+    }
+    
+    return l[n];
 };
 
-const f = (n, dictionary) => {
-    if (n < 3) return n;
-    if (dictionary[n]) return dictionary[n];
-
-    dictionary[n] = f(n - 1, dictionary) + f(n - 2, dictionary);
-    return dictionary[n];
-}
